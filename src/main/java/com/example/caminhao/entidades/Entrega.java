@@ -17,14 +17,14 @@ import jakarta.persistence.ManyToOne;
 public class Entrega {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_entrega;
+	private Long id;
 	
 	@ManyToOne
-    @JoinColumn(name = "id_caminhao", nullable = false)
+    @JoinColumn(name = "idCaminhao", nullable = false)
     private Caminhao caminhao;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_motorista",nullable=false)
+	@JoinColumn(name = "idMotorista",nullable=false)
 	private Motorista motorista;
 	
 	private LocalDate dataEntrega;
@@ -72,11 +72,15 @@ public class Entrega {
 	public void setLocal(LocalEntrega local) {
 		this.local = local;
 	}
-	public Long getId_entrega() {
-		return id_entrega;
+	
+	
+	
+	
+	public Long getId() {
+		return id;
 	}
-	public void setId_entrega(Long id_entrega) {
-		this.id_entrega = id_entrega;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public Caminhao getCaminhao() {
 		return caminhao;

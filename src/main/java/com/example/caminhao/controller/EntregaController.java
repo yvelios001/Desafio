@@ -1,21 +1,23 @@
-package com.example.controller;
+package com.example.caminhao.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.caminhao.entidades.Entrega;
-import com.example.service.EntregaService;
+import com.example.caminhao.service.EntregaService;
 
 @RestController
 @RequestMapping("/api/entregas")
-public class Entrega_Controller {
+public class EntregaController {
 	
-	
+
+
 	@Autowired
     private EntregaService entregaService;
 
@@ -29,6 +31,10 @@ public class Entrega_Controller {
         }
     }
 	
+	@GetMapping
+	public String teste() {
+		return "Teste";
+	}
 
 		
 	} 

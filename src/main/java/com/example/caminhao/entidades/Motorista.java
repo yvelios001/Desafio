@@ -12,14 +12,22 @@ public class Motorista {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private Long id_motorista;
+	private Long id;
 	private String nome;
 	private int entregaNoMes;
 	private LocalDate ultimaData;
 	
-	public Long getId_motorista() {
-		return id_motorista;
+	
+	
+	
+	public Long getId() {
+		return id;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	
 	public LocalDate getUltimaData() {
 		return ultimaData;
@@ -35,9 +43,7 @@ public class Motorista {
 	public void setEntregaNoMes(int entregaNoMes) {
 		this.entregaNoMes = entregaNoMes;
 	}
-	public void setId_mototista(Long id_mototista) {
-		this.id_motorista = id_mototista;
-	}
+	
 	public String getNome() {
 		return nome;
 	}

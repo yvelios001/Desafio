@@ -2,6 +2,7 @@ package com.example.caminhao.entidades;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,15 +13,19 @@ public class Caminhao {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_caminhao;
+	private Long id;
 	private String placa;
 	private int entregasFeitasNoMes;
 	private LocalDate ultimaEntregaData;
-	public Long getId_caminhao() {
-		return id_caminhao;
+	
+	
+	
+	
+	public Long getId() {
+		return id;
 	}
-	public void setId_caminhao(Long id_caminhao) {
-		this.id_caminhao = id_caminhao;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getPlaca() {
 		return placa;
