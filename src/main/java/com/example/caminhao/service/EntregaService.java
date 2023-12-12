@@ -28,11 +28,20 @@ public class EntregaService {
 	
 	
 	public void realizarEntrega(Entrega entrega) {
+   
+    atualizarCaminhaoMotorista(entrega);
+    
     validarRegrasDeNegocio(entrega);
+    
+    Motorista motorista = entrega.getMotorista();
+    Caminhao caminhao = entrega.getCaminhao();
+
+    motoristarepository.save(motorista);
+    caminhaorepository.save(caminhao);
     
     entregarepository.save(entrega);
     
-    atualizarCaminhaoMotorista(entrega);
+    
 	
 	}
 	
