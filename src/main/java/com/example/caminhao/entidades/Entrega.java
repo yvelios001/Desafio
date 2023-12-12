@@ -20,11 +20,11 @@ public class Entrega {
 	private Long id;
 	
 	@ManyToOne
-    @JoinColumn(name = "idc", nullable = false)
+    @JoinColumn(name = "idCaminhao", nullable = false)
     private Caminhao caminhao;
 	
 	@ManyToOne
-	@JoinColumn(name = "idm",nullable=false)
+	@JoinColumn(name = "idMotorista",nullable=false)
 	private Motorista motorista;
 	
 	private LocalDate dataEntrega;

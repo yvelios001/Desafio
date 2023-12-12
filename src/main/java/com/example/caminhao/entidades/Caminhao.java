@@ -12,7 +12,7 @@ public class Caminhao {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idCaminhao;
 	private String placa;
 	private int entregasFeitasNoMes;
 	private LocalDate ultimaEntregaData;
@@ -20,11 +20,11 @@ public class Caminhao {
 	
 	
 	
-	public Long getId() {
-		return id;
+	public Long getIdCaminhao() {
+		return idCaminhao;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdCaminhao(Long idCaminhao) {
+		this.idCaminhao = idCaminhao;
 	}
 	public String getPlaca() {
 		return placa;
