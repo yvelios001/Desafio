@@ -1,34 +1,53 @@
 package com.example.caminhao.entidades;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Motorista {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private Long idMotorista;
+	private Long id;
 	private String nome;
 	private int entregaNoMes;
 	private LocalDate ultimaData;
+	@OneToMany(mappedBy="motorista",cascade = CascadeType.ALL)
+	private List <Entrega> entregas= new ArrayList<>();
+	
+	
+	public Motorista() {
+		this.entregas = new ArrayList<>();
+		
+	}
 	
 	
 	
 	
 	
-	
-	
-	public Long getIdMotorista() {
-		return idMotorista;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdMotorista(Long idMotorista) {
-		this.idMotorista = idMotorista;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public List<Entrega> getEntregas() {
+		return entregas;
+	}
+
+	public void setEntregas(List<Entrega> entregas) {
+		this.entregas = entregas;
 	}
 
 	public LocalDate getUltimaData() {

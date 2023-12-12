@@ -20,13 +20,16 @@ public class Entrega {
 	private Long id;
 	
 	@ManyToOne
-    @JoinColumn(name = "idCaminhao", nullable = false)
+    @JoinColumn(name = "caminhao_id", nullable = false)
     private Caminhao caminhao;
 	
 	@ManyToOne
-	@JoinColumn(name = "idMotorista",nullable=false)
+	@JoinColumn(name = "motorista_id",nullable=false)
 	private Motorista motorista;
 	
+	
+
+
 	private LocalDate dataEntrega;
 	
 	@Column(nullable=false)
@@ -62,8 +65,19 @@ public class Entrega {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private LocalEntrega local;
+    
+    public Entrega() {
+    	
+    }
 	
     //daki pra baixo é os getters e os setters
+    
+    
+    public Entrega(Caminhao caminhao, Motorista motorista) {
+		super();
+		this.caminhao = caminhao;
+		this.motorista = motorista;
+	}
     
     
 	public LocalEntrega getLocal() {
