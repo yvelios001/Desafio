@@ -51,22 +51,20 @@ public class EntregaController {
 		}
 	}
 
-	
 	@GetMapping("/pegar-por-id/{id}")
 	public ResponseEntity<Entrega> getEntregaById(@PathVariable Long id) {
-	    try {
-	        Optional<Entrega> entrega = entregaRepository.findById(id);
+		try {
+			Optional<Entrega> entrega = entregaRepository.findById(id);
 
-	        if (entrega.isPresent()) {
-	            return new ResponseEntity<>(entrega.get(), HttpStatus.OK);
-	        } else {
-	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-	    }
+			if (entrega.isPresent()) {
+				return new ResponseEntity<>(entrega.get(), HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
-	
-	
+
 }
