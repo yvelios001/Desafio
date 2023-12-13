@@ -14,17 +14,15 @@ import com.example.caminhao.repository.MotoristaRepository;
 @RestController
 @RequestMapping("/motorista")
 public class MotoristaController {
-	
+
 	@Autowired
 	private MotoristaRepository motoristaRepository;
-	
+
 	@PostMapping
-	 public ResponseEntity<Motorista>CadastrarMotorista(@RequestBody Motorista motorista) {
-	
+	public ResponseEntity<Motorista> CadastrarMotorista(@RequestBody Motorista motorista) {
+
 		Motorista motoristaSalvo = motoristaRepository.save(motorista);
-	        
 		return new ResponseEntity<>(motoristaSalvo, HttpStatus.CREATED);
-		 
-	      
+
+	}
 }
-	 }

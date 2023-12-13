@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,26 +15,21 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Motorista {
-	
+
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private int entregaNoMes;
 	private LocalDate ultimaData;
-	@OneToMany(mappedBy="motorista",cascade = CascadeType.ALL)
-	private List <Entrega> entregas= new ArrayList<>();
-	
-	
+	@JsonIgnore
+	@OneToMany(mappedBy = "motorista", cascade = CascadeType.ALL)
+	private List<Entrega> entregas = new ArrayList<>();
+
 	public Motorista() {
 		this.entregas = new ArrayList<>();
-		
+
 	}
-	
-	
-	
-	
-	
 
 	public Long getId() {
 		return id;
@@ -61,14 +58,16 @@ public class Motorista {
 	public int getEntregaNoMes() {
 		return entregaNoMes;
 	}
+
 	public void setEntregaNoMes(int entregaNoMes) {
 		this.entregaNoMes = entregaNoMes;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
-	}	
+	}
 }

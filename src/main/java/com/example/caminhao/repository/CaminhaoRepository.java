@@ -6,6 +6,7 @@ import com.example.caminhao.entidades.Caminhao;
 
 @Repository
 public interface CaminhaoRepository extends JpaRepository<Caminhao, Long> {
+
 	
 }
   

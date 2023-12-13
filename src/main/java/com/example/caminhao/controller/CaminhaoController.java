@@ -20,12 +20,7 @@ public class CaminhaoController {
 
     @PostMapping
     public ResponseEntity<Caminhao> criarCaminhao(@RequestBody Caminhao caminhao) {
-        // Validações podem ser adicionadas aqui, se necessário
-
-        // Salvar o caminhão no banco de dados
         Caminhao caminhaoSalvo = caminhaoRepository.save(caminhao);
-
-        // Retornar o caminhão salvo e um status 201 (CREATED)
         return new ResponseEntity<>(caminhaoSalvo, HttpStatus.CREATED);
     }
 }

@@ -18,130 +18,132 @@ public class Entrega {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@ManyToOne
-    @JoinColumn(name = "caminhao_id", nullable = false)
-    private Caminhao caminhao;
-	
-	@ManyToOne
-	@JoinColumn(name = "motorista_id",nullable=false)
-	private Motorista motorista;
-	
-	
 
+	@ManyToOne
+	@JoinColumn(name = "caminhao_id", nullable = false)
+	private Caminhao caminhao;
+
+	@ManyToOne
+	@JoinColumn(name = "motorista_id", nullable = false)
+	private Motorista motorista;
 
 	private LocalDate dataEntrega;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private BigDecimal valor;
-	
-    private boolean temSeguro;
 
-    private boolean ePerigosa;
+	private boolean temSeguro;
 
-    public boolean iseValiosa() {
+	private boolean ePerigosa;
+
+	public boolean iseValiosa() {
 		return eValiosa;
 	}
+
 	public void seteValiosa(boolean eValiosa) {
 		this.eValiosa = eValiosa;
 	}
 
+	private boolean eValiosa;
 
-    private boolean eValiosa;
-    
-    public enum TipoEntrega {
-        ELETRONICOS,
-        COMBUSTIVEL,
-        }
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private TipoEntrega tipo;
-    
-    public enum LocalEntrega{
-    	AMAZONAS,
-    	NORDESTE,
-    	ARGENTINA
-    }
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private LocalEntrega local;
-    
-    public Entrega() {
-    	
-    }
-	
-    //daki pra baixo é os getters e os setters
-    
-    
-    public Entrega(Caminhao caminhao, Motorista motorista) {
+	public enum TipoEntrega {
+		ELETRONICOS, COMBUSTIVEL,
+	}
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private TipoEntrega tipo;
+
+	public enum LocalEntrega {
+		AMAZONAS, NORDESTE, ARGENTINA
+	}
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private LocalEntrega local;
+
+	public Entrega() {
+
+	}
+
+	// daki pra baixo é os getters e os setters
+
+	public Entrega(Caminhao caminhao, Motorista motorista) {
 		super();
 		this.caminhao = caminhao;
 		this.motorista = motorista;
 	}
-    
-    
+
 	public LocalEntrega getLocal() {
 		return local;
 	}
+
 	public void setLocal(LocalEntrega local) {
 		this.local = local;
 	}
-	
-	
-	
-	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public Caminhao getCaminhao() {
 		return caminhao;
 	}
+
 	public void setCaminhao(Caminhao caminhao) {
 		this.caminhao = caminhao;
 	}
+
 	public Motorista getMotorista() {
 		return motorista;
 	}
+
 	public void setMotorista(Motorista motorista) {
 		this.motorista = motorista;
 	}
+
 	public LocalDate getDataEntrega() {
 		return dataEntrega;
 	}
+
 	public void setDataEntrega(LocalDate dataEntrega) {
 		this.dataEntrega = dataEntrega;
 	}
+
 	public BigDecimal getValor() {
 		return valor;
 	}
+
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+
 	public boolean isTemSeguro() {
 		return temSeguro;
 	}
+
 	public void setTemSeguro(boolean temSeguro) {
 		this.temSeguro = temSeguro;
 	}
+
 	public boolean isePerigosa() {
 		return ePerigosa;
 	}
+
 	public void setePerigosa(boolean ePerigosa) {
 		this.ePerigosa = ePerigosa;
 	}
-	
+
 	public TipoEntrega getTipo() {
 		return tipo;
 	}
+
 	public void setTipo(TipoEntrega tipo) {
 		this.tipo = tipo;
 	}
-
-
-
-
 
 }
